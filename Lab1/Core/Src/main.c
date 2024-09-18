@@ -93,6 +93,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   HAL_GPIO_WritePin(GPIOA, LED_RED_Pin, GPIO_PIN_SET);
   int count = 0;
+  int a = 1;
   while (1)
   {
 	  if (count == 0){
