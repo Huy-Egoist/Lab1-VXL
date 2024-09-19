@@ -91,13 +91,57 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  void clock(int number) {
+      switch (number) {
+      case 1:
+    	  HAL_GPIO_TogglePin ( L1_GPIO_Port , L1_Pin ) ;
+    	  break;
+      case 2:
+    	  HAL_GPIO_TogglePin ( L2_GPIO_Port , L2_Pin ) ;
+    	  break;
+      case 3:
+    	  HAL_GPIO_TogglePin ( L3_GPIO_Port , L3_Pin ) ;
+    	  break;
+      case 4:
+    	  HAL_GPIO_TogglePin ( L4_GPIO_Port , L4_Pin ) ;
+    	  break;
+      case 5:
+    	  HAL_GPIO_TogglePin ( L5_GPIO_Port , L5_Pin ) ;
+    	  break;
+      case 6:
+    	  HAL_GPIO_TogglePin ( L6_GPIO_Port , L6_Pin ) ;
+    	  break;
+      case 7:
+    	  HAL_GPIO_TogglePin ( L7_GPIO_Port , L7_Pin ) ;
+    	  break;
+      case 8:
+    	  HAL_GPIO_TogglePin ( L8_GPIO_Port , L8_Pin ) ;
+    	  break;
+      case 9:
+    	  HAL_GPIO_TogglePin ( L9_GPIO_Port , L9_Pin ) ;
+    	  break;
+      case 10:
+    	  HAL_GPIO_TogglePin ( L10_GPIO_Port , L10_Pin ) ;
+    	  break;
+      case 11:
+    	  HAL_GPIO_TogglePin ( L11_GPIO_Port , L11_Pin ) ;
+    	  break;
+      case 12:
+    	  HAL_GPIO_TogglePin ( L12_GPIO_Port , L12_Pin ) ;
+    	  break;
+      }
+  }
+  int count = 0;
+  HAL_GPIO_WritePin(GPIOA, L1_Pin|L2_Pin|L3_Pin|L4_Pin
+                          |L5_Pin|L6_Pin|L7_Pin|L8_Pin
+                          |L9_Pin|L10_Pin|L11_Pin|L12_Pin, GPIO_PIN_SET);
   while (1)
   {
-    /* USER CODE END WHILE */
-	  HAL_GPIO_TogglePin ( LED_RED_GPIO_Port , LED_RED_Pin ) ;
-	  HAL_Delay (1000) ;
-
-    /* USER CODE BEGIN 3 */
+	  clock(count);
+	  if(count == 12) count = 0;
+	  clock(count + 1);
+	  count++;
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
@@ -150,14 +194,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, L1_Pin|L2_Pin|L3_Pin|L4_Pin
+                          |L5_Pin|L6_Pin|L7_Pin|L8_Pin
+                          |L9_Pin|L10_Pin|L11_Pin|L12_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : LED_RED_Pin */
-  GPIO_InitStruct.Pin = LED_RED_Pin;
+  /*Configure GPIO pins : L1_Pin L2_Pin L3_Pin L4_Pin
+                           L5_Pin L6_Pin L7_Pin L8_Pin
+                           L9_Pin L10_Pin L11_Pin L12_Pin */
+  GPIO_InitStruct.Pin = L1_Pin|L2_Pin|L3_Pin|L4_Pin
+                          |L5_Pin|L6_Pin|L7_Pin|L8_Pin
+                          |L9_Pin|L10_Pin|L11_Pin|L12_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED_RED_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 }
 
