@@ -135,6 +135,12 @@ int main(void)
   HAL_GPIO_WritePin(GPIOA, L1_Pin|L2_Pin|L3_Pin|L4_Pin
                           |L5_Pin|L6_Pin|L7_Pin|L8_Pin
                           |L9_Pin|L10_Pin|L11_Pin|L12_Pin, GPIO_PIN_SET);
+  void clearAllClock () {
+	  HAL_GPIO_WritePin(GPIOA, L1_Pin|L2_Pin|L3_Pin|L4_Pin
+	                          |L5_Pin|L6_Pin|L7_Pin|L8_Pin
+	                          |L9_Pin|L10_Pin|L11_Pin|L12_Pin, GPIO_PIN_RESET);
+  }
+
   while (1)
   {
 	  clock(count);
