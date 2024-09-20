@@ -91,6 +91,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  void clearAllClock () {
+	  HAL_GPIO_WritePin(GPIOA, L1_Pin|L2_Pin|L3_Pin|L4_Pin
+	                          |L5_Pin|L6_Pin|L7_Pin|L8_Pin
+	                          |L9_Pin|L10_Pin|L11_Pin|L12_Pin, GPIO_PIN_RESET);
+  }
   void setNumberOnClock(int number) {
         switch (number) {
         case 1:
@@ -171,11 +176,33 @@ int main(void)
       	  break;
         }
     }
+  int second = 0,    minute = 0,
+      hour = 0, cnt = 0, status = 0;
+  void clock(){
+	  if(++second>=60){
+		  second = 0;
+		  if(++minute>=60){
+			  minute = 0;
+			  clearNumberOnClock(hour);
+			  hour=(hour+1)%12;
+		  }
+	  }
+	  if(second%5==0){
+		  clearNumberOnClock((second/5==0)?12:(second/5)-1);
+		  setNumberOnClock(second/5);
+	  }
+	  setNumberOnClock(hour%12);
+	  if(--cnt <= 0 ){
+		  status = !status;
+		  if(status) setNumberOnClock(minute/5);
+		  cnt = 10;
+	  }
+  }
+  clearAllClock();
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+	  clock();
+	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
