@@ -200,14 +200,16 @@ int main(void)
   	        case 5:
   	            HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
   	            HAL_GPIO_TogglePin(GPIOA, LED_GREEN_Pin);
+  	            HAL_GPIO_TogglePin(GPIOA, LED_RED1_Pin);
+  	            HAL_GPIO_TogglePin(GPIOA, LED_YELLOW1_Pin);
+  	            break;
+  	        case 7:
   	            HAL_GPIO_TogglePin(GPIOA, LED_YELLOW1_Pin);
   	            HAL_GPIO_TogglePin(GPIOA, LED_GREEN1_Pin);
   	            break;
   	        case 2:
   	            HAL_GPIO_TogglePin(GPIOA, LED_GREEN_Pin);
   	            HAL_GPIO_TogglePin(GPIOA, LED_YELLOW_Pin);
-  	            HAL_GPIO_TogglePin(GPIOA, LED_RED1_Pin);
-  	            HAL_GPIO_TogglePin(GPIOA, LED_YELLOW1_Pin);
   	            break;
   	        case 0:
   	            HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
