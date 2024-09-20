@@ -131,6 +131,46 @@ int main(void)
       	  break;
         }
     }
+  void clearNumberOnClock(int number) {
+        switch (number) {
+        case 1:
+      	  HAL_GPIO_WritePin ( GPIOA , L1_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 2:
+          HAL_GPIO_WritePin ( GPIOA , L2_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 3:
+          HAL_GPIO_WritePin ( GPIOA , L3_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 4:
+        	HAL_GPIO_WritePin ( GPIOA , L4_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 5:
+        	HAL_GPIO_WritePin ( GPIOA , L5_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 6:
+        	HAL_GPIO_WritePin ( GPIOA , L6_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 7:
+        	HAL_GPIO_WritePin ( GPIOA , L7_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 8:
+        	HAL_GPIO_WritePin ( GPIOA , L8_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 9:
+        	HAL_GPIO_WritePin ( GPIOA , L9_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 10:
+        	HAL_GPIO_WritePin ( GPIOA , L10_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 11:
+        	HAL_GPIO_WritePin ( GPIOA , L11_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        case 12:
+        	HAL_GPIO_WritePin ( GPIOA , L12_Pin , GPIO_PIN_SET ) ;
+      	  break;
+        }
+    }
   while (1)
   {
     /* USER CODE END WHILE */
